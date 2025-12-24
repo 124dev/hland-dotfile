@@ -1,0 +1,140 @@
+{
+    "layer":"top",
+    "position":"top",
+    "height":0,
+    "spacing":0,
+    "margin-top":2,
+    "margin-right":2,
+    "margin-bottom":2,
+    "margin-left":2,
+
+
+    "modules-left":[
+            "custom/archicon",
+        "hyprland/workspaces",
+	"hyprland/window"
+    ],
+
+    "modules-center":[
+        "clock"
+    ],
+
+    "modules-right":[
+	"cpu",
+	"memory",
+  "pulseaudio",
+  "bluetooth",
+	"network",
+  	"battery",
+	"custom/power"
+   ],
+
+   "hyprland/workspaces":{
+	"diable-scroll":true,
+	"all-outputs":true,
+	"format":"{icon}",
+	"format-icons":{
+	    "1":"𒉭",
+	    "2":"𒉭",
+	    "3":"𒉭",
+	    "4":"𒉭",
+	    "5":"𒉭",
+	    "active":"𒉭",
+	    "default":"𒉭"
+	},
+	"persistent-workspaces":{
+	    "1":[],
+	    "2":[],
+	    "3":[],
+	    "4":[],
+	    "5":[]
+	}
+  },
+
+  "hyprland/window":{
+	"format":"{title:.80}",
+  	"max-length":40,
+	"seperate-outputs":true
+  },
+  "bluetooth": {
+    "format": "󰂯 {}",
+    "format-connected": "󰂯 {num_connections}",
+    "format-disabled": "󰂲",
+    "tooltip": true,
+},
+
+"clock": {
+  "timezone": "Asia/Manila",
+  "format": "{:%I:%M %p}",       // main clock format
+  "tooltip": true,               // enable hover tooltip
+  "tooltip-format": "{:%a, %d %b %Y}"  // format for the tooltip (hover)
+},
+
+
+
+  "cpu":{
+    "format":"{usage}% ",
+    "tooltip":true
+  },
+  
+
+"custom/archicon": {
+    "format": " 󰣇  ",
+    "tooltip": false
+},
+
+
+  "memory":{
+    "format":"{}% ",
+    "tooltip":true
+  },
+
+  "battery":{
+    "states":{
+	"warning":30,
+	"critical":15
+    },
+    "format":"{capacity}%  {icon}",
+    "format-charging":"{capacity}%  ",
+    "format-icons":["","","","",""],
+    "tooltip":true,
+  },
+
+  "network":{
+    "format-wifi":" {}",
+    "format-ethernet":"eth",
+    "format-disconnected":"off",
+    "tooltip":false,
+    "on-click": "swaync-client -t",
+  },
+
+  "tray":{
+    "spacing":4,
+    "icon-size":12,
+   },
+   "pulseaudio": {
+    "format": "",
+    "format-bluetooth": "󰂰",
+    "format-muted": "",
+    "format-icons": {
+        "alsa_output.pci-0000_00_1f.3.analog-stereo": "",
+        "alsa_output.pci-0000_00_1f.3.analog-stereo-muted": "",
+        "headphone": "",
+        "hands-free": "",
+        "headset": "",
+        "phone": "",
+        "phone-muted": "",
+        "portable": "",
+        "car": "",
+        "default": ["", ""]
+    },
+    "scroll-step": 1,
+    "on-click": "~/.config/waybar/scripts/volume.sh",
+    "ignored-sinks": ["Easy Effects Sink"]
+},
+  "custom/power":{
+   "format":"",
+   "tooltip":false,
+   "on-click": "~/.config/waybar/scripts/powermenu.sh",
+  }
+}

@@ -1,0 +1,246 @@
+/* ---- 💫 https://github.com/JaKooLit 💫 ---- */
+/* Catppuccin Mocha */
+@import '../../.cache/wal/colors-waybar.css';
+@import "colors.css";
+* {
+	font-family: "Symbols Nerd Font Mono";
+	font-weight: bold;
+	min-height: 0;
+	/* set font-size to 100% if font scaling is set to 1.00 using nwg-look */
+	font-size: 10;
+	font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
+}
+
+
+window#waybar {
+  	transition-property: background-color;
+  	transition-duration: 0.5s;
+  	background: transparent;
+  	border-radius: 8px;
+}
+
+window#waybar.hidden {
+  	opacity: 0.2;
+}
+
+window#waybar.empty,
+window#waybar.empty #window {
+    background-color: transparent;
+    padding: 0px;
+    border: 0px;
+}
+
+#taskbar button,
+#workspaces button {
+	color: @source_color;
+    box-shadow: none;
+	text-shadow: none;
+    padding: 0px;
+    border-radius: 9px;
+    padding-left: 4px;
+    padding-right: 4px;
+	padding-bottom: 4px;
+    animation: gradient_f 20s ease-in infinite;
+}
+
+
+#workspaces button.persistent {
+	color: #ffffff;
+	border-radius: 10px;
+}
+
+#taskbar button.active,
+#workspaces button.active {
+	color: @primary;
+    animation: gradient_f 20s ease-in infinite;
+}
+
+
+/* This section can be use if you want to separate waybar modules */
+.modules-left,.modules-right {
+	margin-top: 5px;
+	margin-left: 5px;
+	margin-right: 5px;
+	background: @shadow; 
+	padding-top: 4px;
+	padding-bottom: 2px;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+ .modules-center {
+	background: @shadow; 
+	margin-top: 5px;
+	margin-left: 5px;
+	margin-right: 5px;
+	padding-top: 4px;
+	padding-bottom: 2px;
+	padding-right: 10px;
+	padding-left: 10px;
+ }
+
+
+#backlight,
+#backlight-slider,
+#battery,
+#pulseaudio,
+#bluetooth,
+#clock,
+#cpu,
+#disk,
+#idle_inhibitor,
+#keyboard-state,
+#memory,
+#mode,
+#mpris,
+#network,
+#power-profiles-daemon,
+#pulseaudio,
+#pulseaudio-slider,
+#taskbar button,
+#taskbar,
+#temperature,
+#tray,
+#window,
+#wireplumber,
+#custom-archicon,
+#workspaces,
+#custom-backlight,
+#custom-browser,
+#custom-cava_mviz,
+#custom-cycle_wall,
+#custom-dot_update,
+#custom-file_manager,
+#custom-keybinds,
+#custom-keyboard,
+#custom-light_dark,
+#custom-lock,
+#custom-hint,
+#custom-hypridle,
+#custom-menu,
+#custom-playerctl,
+#custom-power_vertical,
+#custom-power,
+#custom-quit,
+#custom-reboot,
+#custom-settings,
+#custom-spotify,
+#custom-swaync,
+#custom-tty,
+#custom-updater,
+#custom-weather,
+#custom-weather.clearNight,
+#custom-weather.cloudyFoggyDay,
+#custom-weather.cloudyFoggyNight,
+#custom-weather.default, 
+#custom-weather.rainyDay,
+#custom-weather.rainyNight,
+#custom-weather.severe,
+#custom-weather.showyIcyDay,
+#custom-weather.snowyIcyNight,
+#custom-weather.sunnyDay {
+	padding-top: 4px;
+	padding-bottom: 4px;
+	padding-right: 6px;
+	padding-left: 6px;
+}
+#memory, #cpu {
+	padding-top: 2.5px;
+}
+/*-----Indicators----*/
+#custom-hypridle.notactive,
+#idle_inhibitor.activated {
+	color: #39FF14;
+}
+
+#bluetooth,
+#backlight {
+  color: #e9e9e9;
+}
+
+#battery {
+  color: #e9e9e9;
+}
+tooltip {
+	background-color: @background;
+}
+
+#battery.critical:not(.charging) {
+  color: red;
+	animation-name: blink;
+	animation-duration: 3.0s;
+	animation-timing-function: steps(12);
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+  box-shadow: inset 0 -3px transparent;
+}
+#pulseaudio {
+	color: #e9e9e9;
+}
+#clock {
+  color: #e9e9e9;
+}
+
+#cpu {
+  color: #e9e9e9;
+}
+
+
+#disk {
+  color: #e9e9e9;
+}
+
+#custom-archicon {
+  color: #e9e9e9;
+}
+
+
+#window{
+  color: #e9e9e9;
+}
+
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+
+
+#window {
+  color: #e9e9e9;
+}
+
+
+#network {
+  color: #e9e9e9;
+}
+#memory {
+  color: #e9e9e9;
+}
+#custom-power {
+  color: #e9e9e9;
+}
+
+
+#backlight-slider slider,
+#pulseaudio-slider slider {
+	min-width: 0px;
+	min-height: 0px;
+	opacity: 0;
+	background-image: none;
+	border: none;
+	box-shadow: none;
+}
+
+#backlight-slider trough,
+#pulseaudio-slider trough {
+	min-width: 80px;
+	min-height: 5px;
+	border-radius: 5px;
+}
+
+#backlight-slider highlight,
+#pulseaudio-slider highlight {
+	min-height: 10px;
+	border-radius: 5px;
+}
