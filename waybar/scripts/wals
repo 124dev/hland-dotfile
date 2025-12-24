@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Directories
+WALL_DIR="$HOME/pictures/wallpapers"
+CWD="$(pwd)"
+
+# Go to wallpapers folder
+cd "$WALL_DIR" || exit
+
+# Handle filenames with spaces
+IFS=$'\n'
+
+# Show wallpapers in Rofi
+SELECTED_WALL=$(for a in *.jpg *.png; do
+    echo -en "$a\0icon\x1f$a\n"
+done | rofi -dmenu -p "Select Wallpaper" -format 's')
+
+# Apply wallpaper if selected
+if [ -n "$SELECTED_WALL" ]; then
+    /home/arch12/.local/bin/walset "$SELECTED_WALL"
+fi
+
+# Return to original directory
+cd "$CWD" || exit
