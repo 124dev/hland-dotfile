@@ -1,3 +1,4 @@
+
 {
     "layer":"top",
     "position":"top",
@@ -10,22 +11,21 @@
 
 
     "modules-left":[
-            "custom/archicon",
         "hyprland/workspaces",
 	"hyprland/window"
     ],
-
     "modules-center":[
-        "clock"
     ],
-
     "modules-right":[
-	"cpu",
+      "custom/playerinfo",
+	"custom/cava",
+      "cpu",
 	"memory",
   "pulseaudio",
   "bluetooth",
 	"network",
   	"battery",
+           "clock",
 	"custom/power"
    ],
 
@@ -61,14 +61,14 @@
     "format-connected": "󰂯 {num_connections}",
     "format-disabled": "󰂲",
     "tooltip": true,
+        "on-click": "swaync-client -t",
 },
 
 "clock": {
   "timezone": "Asia/Manila",
-  "format": "{:%I:%M %p}",       // main clock format
-  "tooltip": true,               // enable hover tooltip
-  "tooltip-format": "{:%a, %d %b %Y}"  // format for the tooltip (hover)
+  "format": " {:%a, %d %b %Y} {:%I:%M %p}"
 },
+
 
 
 
@@ -76,11 +76,22 @@
     "format":"{usage}% ",
     "tooltip":true
   },
-  
 
-"custom/archicon": {
-    "format": " 󰣇  ",
-    "tooltip": false
+  "custom/cava": {
+        "format": "{}",
+        "exec": "~/.config/waybar/scripts/cava.sh"
+    },
+    "custom/playerinfo": {
+        "format": "{}",
+        "exec": "~/.config/waybar/scripts/playerinfo.sh",
+        "interval": 1,
+        "tooltip": true,
+    },
+
+"clock": {
+  "timezone": "Asia/Manila",
+  "format": "{:%a, %d %b  %I:%M %p}",
+  "tooltip": true
 },
 
 
@@ -92,7 +103,7 @@
   "battery":{
     "states":{
 	"warning":30,
-	"critical":15
+	"critical":15,
     },
     "format":"{capacity}%  {icon}",
     "format-charging":"{capacity}%  ",
@@ -101,10 +112,11 @@
   },
 
   "network":{
-    "format-wifi":" {}",
+    "format-wifi":"",
     "format-ethernet":"eth",
+    "tooltip-format":"{}",
     "format-disconnected":"off",
-    "tooltip":false,
+    "tooltip":true,
     "on-click": "swaync-client -t",
   },
 
@@ -116,6 +128,7 @@
     "format": "",
     "format-bluetooth": "󰂰",
     "format-muted": "",
+    
     "format-icons": {
         "alsa_output.pci-0000_00_1f.3.analog-stereo": "",
         "alsa_output.pci-0000_00_1f.3.analog-stereo-muted": "",
@@ -127,6 +140,7 @@
         "portable": "",
         "car": "",
         "default": ["", ""]
+        
     },
     "scroll-step": 1,
     "on-click": "~/.config/waybar/scripts/volume.sh",
